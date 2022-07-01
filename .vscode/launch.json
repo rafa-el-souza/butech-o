@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Back-end",
+      "type": "node",
+      "request": "attach",
+      "protocol": "inspector",
+      "restart": true,
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      // "showAsyncStacks": true,
+      // "trace": true,
+    }
+  ]
+}
