@@ -1,8 +1,8 @@
 import express, { Application, Router } from 'express';
 
-import { connection as connectToDatabase } from '../db/connection';
+import { connection as connectToDatabase } from '../db';
+import { errorHandler, corsMiddleware } from './middlewares';
 import { ApiInterface } from './helpers/types';
-import { corsMiddleware } from './middlewares';
 
 class Api implements ApiInterface {
   public api: express.Application;
@@ -26,7 +26,10 @@ class Api implements ApiInterface {
   }
 
   public handleErrors(): void {
-    this.api.use((req, res, next) => { next(); });
+    this.api.use(errorHandler.authError);
+    this.api.use(errorHandler.domainError);
+    this.api.use(errorHandler.zodDomainError);
+    this.api.use(errorHandler.internalError);
   }
 
   public getApi(): Application {
