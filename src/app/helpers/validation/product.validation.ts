@@ -1,4 +1,5 @@
 import { z } from 'zod';
+
 import { createCategoryZodSchema } from './category.validation';
 
 export const createProductZodSchema = z.object({
