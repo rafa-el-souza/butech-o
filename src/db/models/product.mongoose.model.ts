@@ -1,8 +1,7 @@
-import {
-  Schema, model as createModel, Document,
-} from 'mongoose';
-import { ProductInterface } from '../../app/helpers/validation';
+import { Schema, model as createModel, Document } from 'mongoose';
+
 import { categorySchema } from './category.mongoose.model';
+import { ProductInterface } from '../../app/helpers/validation';
 
 export interface ProductDocument extends ProductInterface, Document { }
 
@@ -14,4 +13,4 @@ export const productSchema = new Schema<ProductDocument>({
   categorias: { type: [categorySchema], required: true },
 }, { versionKey: false, timestamps: true });
 
-export const mongooseProductModel = createModel('Product', productSchema);
+export const productMongooseModel = createModel('Product', productSchema);
