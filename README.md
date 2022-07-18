@@ -4,7 +4,7 @@
 
 ### Todos:
 
-- [ ] Add documentation
+- [x] Add planning
 - [ ] Implement API
 - [ ] 100% coverage unit tests
 - [ ] Add integration tests
