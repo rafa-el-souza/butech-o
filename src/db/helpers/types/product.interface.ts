@@ -1,4 +1,5 @@
 import { Types } from 'mongoose';
+
 import { CategoryInterface } from './category.interface';
 
 interface InventoryInterface {
