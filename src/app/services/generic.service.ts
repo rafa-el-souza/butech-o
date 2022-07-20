@@ -1,7 +1,7 @@
 /* eslint-disable class-methods-use-this */
+import { GenericModel } from '../models';
 import { DomainError } from '../helpers/errors';
 import { GenericServiceInterface } from '../helpers/types';
-import { GenericModel } from '../models';
 
 export abstract class GenericService<Output>
 implements GenericServiceInterface {
