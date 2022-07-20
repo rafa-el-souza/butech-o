@@ -17,6 +17,7 @@ export const errorHandler = {
       console.error(err.message);
       return res.status(code.unauthorized).json({ error: message.unauthorized });
     }
+    console.error(err);
     return next(err);
   },
 
@@ -29,6 +30,7 @@ export const errorHandler = {
     if (err instanceof DomainError) {
       return res.status(err.code).json({ error: err.message });
     }
+    console.error(err);
     return next(err);
   },
 
@@ -43,6 +45,7 @@ export const errorHandler = {
       return res.status(code.badRequest)
         .json({ error: firstIssue?.message });
     }
+    console.error(err);
     return next(err);
   },
 
@@ -52,5 +55,8 @@ export const errorHandler = {
     res: Response,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     _next: NextFunction,
-  ) => res.status(code.internalServer).json({ message: message.internalServer }),
+  ) => {
+    console.error(_err);
+    return res.status(code.internalServer).json({ message: message.internalServer });
+  },
 };
