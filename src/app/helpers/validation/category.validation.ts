@@ -2,13 +2,13 @@ import { z } from 'zod';
 
 export const createCategoryZodSchema = z.object({
   nome: z.string({
-    required_error: 'Product category is required',
-    invalid_type_error: 'Product category must be a string',
-  }).min(3, { message: 'Product category must be 3 or more characters long' }),
+    required_error: 'Category name is required',
+    invalid_type_error: 'Category name must be a string',
+  }).min(3, { message: 'Category name must be 3 or more characters long' }),
   descricao: z.string({
-    required_error: 'Product category is required',
-    invalid_type_error: 'Product category must be a string',
-  }).min(3, { message: 'Product category must be 3 or more characters long' }),
+    required_error: 'Category description is required',
+    invalid_type_error: 'Category description must be a string',
+  }).min(3, { message: 'Category description must be 3 or more characters long' }),
 });
 
 export const updateCategoryZodSchema = z.object({
