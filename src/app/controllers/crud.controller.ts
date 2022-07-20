@@ -6,9 +6,8 @@ import { CRUDControllerInterface } from '../helpers/types';
 
 export abstract class CRUDController<
   Output, CreateInput, UpdateInput, DeleteInput
-> extends GenericController<
-  Output, CreateInput, UpdateInput, DeleteInput
-> implements CRUDControllerInterface<
+> extends GenericController<Output>
+  implements CRUDControllerInterface<
   Output, CreateInput, UpdateInput, DeleteInput
 > {
   constructor(
@@ -17,7 +16,7 @@ export abstract class CRUDController<
     >,
     protected createZodSchema: ZodObject<ZodRawShape>,
     protected updateZodSchema: ZodObject<ZodRawShape>,
-  ) { super(service, createZodSchema, updateZodSchema); }
+  ) { super(service, { create: createZodSchema, update: updateZodSchema }); }
 
   abstract create(obj: CreateInput): Promise<Output>;
 
