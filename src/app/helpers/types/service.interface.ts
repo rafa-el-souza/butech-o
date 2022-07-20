@@ -10,3 +10,7 @@ export interface CRUDServiceInterface<
   update(obj: UpdateInput): Promise<Output | null>;
   delete(obj: DeleteInput): Promise<Output | null>;
 }
+
+export interface LoginServiceInterface<LoginInput, Worker, LoginOutput> {
+  login(obj: LoginInput): LoginOutput | Worker;
+}
