@@ -1,8 +1,6 @@
-import { ZodObject, ZodRawShape } from 'zod';
-
 import GenericController from './generic.controller';
 import { CRUDService } from '../services';
-import { CRUDControllerInterface } from '../helpers/types';
+import { CRUDControllerInterface, ZodSchema } from '../helpers/types';
 
 export abstract class CRUDController<
   Output, CreateInput, UpdateInput, DeleteInput
@@ -14,8 +12,8 @@ export abstract class CRUDController<
     protected service: CRUDService<
       Output, CreateInput, UpdateInput, DeleteInput
     >,
-    protected createZodSchema: ZodObject<ZodRawShape>,
-    protected updateZodSchema: ZodObject<ZodRawShape>,
+    protected createZodSchema: ZodSchema,
+    protected updateZodSchema: ZodSchema,
   ) { super(service, { create: createZodSchema, update: updateZodSchema }); }
 
   abstract create(obj: CreateInput): Promise<Output>;
