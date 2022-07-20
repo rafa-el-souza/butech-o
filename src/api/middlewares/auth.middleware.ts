@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 
-import jwt from '../helpers/auth.jwt';
+import { jwt } from '../helpers/auth.jwt';
 
 export const auth = async (req: Request, res: Response, next: NextFunction) => {
   const { authorization } = req.headers;
