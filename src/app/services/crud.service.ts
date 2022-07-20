@@ -4,9 +4,8 @@ import { CRUDServiceInterface } from '../helpers/types';
 
 export abstract class CRUDService<
   Output, CreateInput, UpdateInput, DeleteInput
-> extends GenericService<
-  Output, CreateInput, UpdateInput, DeleteInput
-> implements CRUDServiceInterface<
+> extends GenericService<Output>
+  implements CRUDServiceInterface<
   Output, CreateInput, UpdateInput, DeleteInput
 > {
   constructor(
