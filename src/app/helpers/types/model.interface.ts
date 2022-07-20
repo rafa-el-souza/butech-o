@@ -6,3 +6,8 @@ export interface CRUDModelInterface<
   update(obj: UpdateInput): Promise<Output | null>;
   delete(obj: DeleteInput): Promise<Output | null>;
 }
+
+export interface LoginModelInterface<LoginInput, Worker, LoginOutput>{
+  login(obj: LoginInput): Promise<Worker | null> | LoginOutput;
+  authenticate(found: Worker | null): LoginOutput;
+}
