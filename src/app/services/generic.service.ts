@@ -1,16 +1,12 @@
 /* eslint-disable class-methods-use-this */
-import CRUDModel from '../models/crud.model';
 import { DomainError } from '../helpers/errors';
 import { GenericServiceInterface } from '../helpers/types';
+import { GenericModel } from '../models';
 
-export abstract class GenericService<
-  Output, CreateInput, UpdateInput, DeleteInput
->
+export abstract class GenericService<Output>
 implements GenericServiceInterface {
   constructor(
-    protected model: CRUDModel<
-      Output, CreateInput, UpdateInput, DeleteInput
-    >,
+    protected model: GenericModel<Output>,
   ) { }
 
   public notFound = (output: any) => {
