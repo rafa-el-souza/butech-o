@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 
 import GenericRouter from './generic.router';
 import { CRUDController } from '../../app/controllers';
+import { statusCodes as code } from '../helpers';
 
 export abstract class CRUDRouter <
   Output, CreateInput, UpdateInput, DeleteInput
@@ -12,7 +13,6 @@ export abstract class CRUDRouter <
     >,
   ) {
     super();
-    this.addRoutes();
   }
 
   public addRoutes = () => {
@@ -20,7 +20,7 @@ export abstract class CRUDRouter <
       .get(
         async (_req: Request, res: Response) => {
           const data = await this.controller.read();
-          return res.status(200).json(data);
+          return res.status(code.ok).json(data);
         },
       );
 
@@ -30,19 +30,19 @@ export abstract class CRUDRouter <
       .post(
         async (req: Request, res: Response) => {
           const data = await this.controller.create(req.body);
-          return res.status(201).json(data);
+          return res.status(code.created).json(data);
         },
       )
       .put(
         async (req: Request, res: Response) => {
           const data = await this.controller.update(req.body);
-          return res.status(200).json(data);
+          return res.status(code.ok).json(data);
         },
       )
       .delete(
         async (req: Request, res: Response) => {
           const data = await this.controller.delete(req.body);
-          return res.status(200).json(data);
+          return res.status(code.ok).json(data);
         },
       );
   };
