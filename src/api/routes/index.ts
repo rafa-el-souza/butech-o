@@ -4,3 +4,4 @@ export * from './generic.router';
 export * from './login.router';
 export * from './product.router';
 export * from './worker.login.router';
+export * from './worker.router';
