@@ -10,6 +10,5 @@ export class CategoryRouter extends CRUDRouter<
     _CategoryController = new CategoryController(),
   ) {
     super(_CategoryController);
-    this.addRoutes();
   }
 }

@@ -10,6 +10,5 @@ export class ProductRouter extends CRUDRouter<
     _ProductController = new ProductController(),
   ) {
     super(_ProductController);
-    this.addRoutes();
   }
 }

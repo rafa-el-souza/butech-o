@@ -10,6 +10,5 @@ export class WorkerLoginRouter extends LoginRouter<
     _LoginController = new WorkerLoginController(),
   ) {
     super(_LoginController);
-    this.addRoutes();
   }
 }
