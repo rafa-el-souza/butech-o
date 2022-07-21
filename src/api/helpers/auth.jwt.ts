@@ -18,7 +18,7 @@ export const jwt = {
   sign: async (payload: any): Promise<string> => {
     const secret = process.env.JWT_SECRET;
     const options = {
-      algorithm: process.env.JWT_ALGORITHM,
+      algorithm: [process.env.JWT_ALGORITHM],
       expiresIn: process.env.JWT_MAX_AGE,
     };
     return new Promise((resolve, reject) => {
