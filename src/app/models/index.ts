@@ -4,4 +4,3 @@ export * from './generic.model';
 export * from './login.model';
 export * from './product.model';
 export * from './worker.login.model';
-export * from './worker.model';
