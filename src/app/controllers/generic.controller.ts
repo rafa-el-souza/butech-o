@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import { GenericService } from '../services';
 import { DomainError } from '../helpers/errors';
 import { GenericControllerInterface, ZodSchemas } from '../helpers/types';
+import { errorMessages as message, statusCodes as code } from '../../api/helpers';
 
 export abstract class GenericController<Output>
 implements GenericControllerInterface {
@@ -34,7 +35,7 @@ implements GenericControllerInterface {
 
   public validateId = (_id: string) => {
     if (!mongoose.Types.ObjectId.isValid(_id)) {
-      throw new DomainError('Invalid id', 400);
+      throw new DomainError(message.badRequest, code.badRequest);
     }
   };
 }
